@@ -1,0 +1,212 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Monaqsa.Com</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Regist-form CSS -->
+    <link href="{% static 'css/regist-form.css' %}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">My Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                         {% csrf_token %}
+                            <li>
+                                <a href="">Sign In</a>
+                            </li>
+                            <li>
+                                <a href="/signup/">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-1-col.html">Membership Profile</a>
+                            </li>
+                            <li>
+                                <a href="portfolio-2-col.html">Message Box</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('http://www.t-enami.org/yahoo_site_admin/assets/images/ENAMI_-_ca1898-1900_-_c_1900_GG.318212005_std.jpg&text=Slide One');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/b/bb/Dlw_railroad_wagon_1900.jpg&text=Slide Two');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('https://cdn1.bigcommerce.com/server3200/r75dscg/product_images/uploaded_images/pope-francis-holy-father-50-ways-to-pray-free-wallpaper-zieglers-fifty-shades-grey-spoof-imac-2560x1400.jpg?t=1423306331&text=Slide Three');"></div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+            {% block body %}
+            {% endblock %}
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Monaqsa.com 2014</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{% static 'js/jquery.js' %}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+{% load i18n %}
+
+{% with form=POPUP_FORM_form action=POPUP_FORM_action popup_id=POPUP_FORM_id form_hide=POPUP_FORM_hide %}
+
+  {# POPUP LINK #}
+  {% block popup_link %}
+      <a href="{{ action }}" id="popup_link_{{ popup_id }}"
+         onclick="$('#popup_form_{{ popup_id }}').fadeIn('slow'); return false;">
+         {% block popup_link_label %}POPUP{% endblock %}
+      </a>
+  {% endblock popup_link %}
+
+  {# POPUP FORM #}
+  {% block popup_form %}
+  <div id="popup_form_{{ popup_id }}"
+       class="{% block popup_form_class %}popup_box{% endblock %}"
+       {% if form_hide %}style="display:none"{% endif %}>
+    <div class="popup_container">
+
+      {% block form_container %}
+        <h2 class="popup_header">{% block form_title %}TITLE GOES HERE{% endblock %}</h2>
+        <div class="popup_content form_centered">
+          {% block form_body %}
+            <form{% block form_attributes %} method="post" action="{{ action }}"{% endblock form_attributes %}>
+              {% csrf_token %}
+
+              {% block form_fields %}
+                {% for field in form %}
+                  {# include 'forms/field.html' #}
+                  {{ field }}
+                {% endfor %}
+              {% endblock form_fields %}
+
+                <div class="popup_buttons_box">
+                  <div class="fl_r">
+                    {% block form_buttons %}
+                      <button type="submit" class="btn_blue">{% block ok_button_text %}{% trans 'Ok' %}{% endblock %}</button>
+                      <a class="btn_gray btn_popup_close" href="{{ request.path }}">{% trans 'Cancel' %}</a>
+                    {% endblock form_buttons %}
+                  </div>
+                </div>
+
+            </form>
+          {% endblock form_body %}
+        </div>
+      {% endblock form_container %}
+
+    </div>
+  </div>
+  {% endblock popup_form %}
+
+{% endwith %}
+
+
+</body>
+
+</html>
