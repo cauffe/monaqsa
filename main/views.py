@@ -11,6 +11,7 @@ from main.forms import UserSignUp, UserLogin
 
 # Create your views here.
 
+
 def home(request):
     context = {}
     tenders = Tender.objects.all()
@@ -19,22 +20,41 @@ def home(request):
     context['quotation_view'] = Quotations
     return render_to_response('home.html', context,
                               context_instance=RequestContext(request))
+    context = {}
+    companies = Company.objects.all()
+    context['companies'] = companies
 
+    return render(request, 'home.html', context)
 
 def signup(request):
 
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/home')
+
+
     context = {}
+def tender_list(request):
+    context = {}
+    tenders = Tender.objects.all()
+    context['tenders'] = tenders
 
     form = UserSignUp()
     context['form'] = form
+    return render(request, 'tenders', context)
 
     if request.method == 'POST':
         form = UserSignUp(request.POST)
         if form.is_valid():
+def tender_detail(request, pk):
+    context = {}
+    tender = Company.objects.get(pk=pk)
+    context['tender'] = tender
 
             name = form.cleaned_data['name']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
+    return render(request, 'tenders.html', context)
 
             try:
                 User.objects.create_user(name, email, password)
@@ -43,13 +63,22 @@ def signup(request):
                 auth_user = authenticate(username=name, password=password)
                 login(request, auth_user)
                 return HttpResponseRedirect('/home/')
+def Quotation_list(request):
+    context = {}
+    quotation = Quotation.objects.all()
+    context['quotations'] = quotations
 
+    return render(request, 'quotations.html', context)
 
             except IntegrityError, e:
                 context['valid'] = "A User With That Name Already Exsist"
 
         else:
             context['valid'] = form.errors
+def quotation_detail(request, pk):
+    context = {}
+    quotation = Quotation.objects.get(pk=pk)
+    context['quotation'] = quotation
 
     if request.method == 'GET':
         context['valid'] = "Please Sign Up!"
@@ -93,4 +122,4 @@ def logout_view(request):
 
     logout(request)
 
-    return HttpResponseRedirect('/home/')
+    return HttpResponseRedirect('/home/')    return render(request, 'qoutation.html', context)
