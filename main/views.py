@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from main.models import Company, Tender, Quotation
 from django.http import HttpResponse, HttpResponseRedirect
+from main.forms import UserSignUp, UserLogin, CreateTender, CreateTender, CreateItem, EditTender, EditQuote, EditItem,
 
 
 # Create your views here.
@@ -35,7 +36,7 @@ def tender_detail(request, pk):
     return render(request, 'tenders.html', context)
 
 
-def Quotation_list(request):
+def quotation_list(request):
     context = {}
     quotation = Quotation.objects.all()
     context['quotations'] = quotations

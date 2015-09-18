@@ -79,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'monaqsa',
-        'HOST': '127.0.01',
+        'HOST': '127.0.0.1',
         'USER': 'root',
         'PASSWORD': 'Rm66935891',
         'PORT': ''
