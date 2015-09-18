@@ -1,10 +1,39 @@
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from main.models import Company, Tender, Quotation
 from django.http import HttpResponse, HttpResponseRedirect
-from main.forms import UserSignUp, UserLogin, CreateTender, CreateTender, CreateItem, EditTender, EditQuote, EditItem,
-
+from main.forms import UserSignUp, UserLogin, CreateTender, CreateTender, CreateItem, EditTender, EditQuote, EditItem
+from django.contrib.auth import authenticate, login, logout
+from django.template import RequestContext
 
 # Create your views here.
+
+def company_signup(request):
+    context = {}
+
+    form = UserSignUp()
+
+    context['form'] = form
+
+    if request.method == 'POST':
+        form = UserSignUp(request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+
+            email = None
+
+            new_user = User.objects.create_user(username, email, password)
+
+            auth_user = authenticate(username=username, password=password)
+
+
+            login(request, auth_user)
+
+            return HttpResponseRedirect('/list_view/')
+
+    return render_to_response('signup.html', context, context_instance=RequestContext(request))
+
 
 
 def home(request):
@@ -56,7 +85,7 @@ def tender_create(request):
     context = {}
     form = CreateTender()
     context['from'] = form
-    if requested.method == "POST":
+    if request.method == "POST":
         form = CreateTender(request.POST, request.FILES)
         if form.is_valid():
             form.save()

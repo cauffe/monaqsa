@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'monaqsa',
+        'NAME': 'kalifa',
         'HOST': '127.0.0.1',
         'USER': 'root',
-        'PASSWORD': 'Rm66935891',
+        'PASSWORD': 'root',
         'PORT': ''
     }
 }
@@ -105,3 +105,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
