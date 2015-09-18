@@ -1,18 +1,3 @@
-"""monaqasa URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.8/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
-"""
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.conf import settings
@@ -21,8 +6,15 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 	url(r'^home/$', 'main.views.home'),
-
 	url(r'^signup/$', 'main.views.signup'),
     url(r'^login/$', 'main.views.login_view'),
     url(r'^logout/$', 'main.views.logout_view'),
-]
+    url(r'^tender/(?P<pk>\d+)/$', 'main.views.tender_detail'),
+    url(r'^logout/$', 'main.views.logout_view'),
+    url(r'^tenders/$', 'main.views.tender_list'),
+    url(r'^quotations/$', 'main.views.quotation_list'),
+    url(r'^quotation/(?P<pk>\d+)/$', 'main.views.quotation'),
+    url(r'^tender_create/$', 'main.views.tender_create'),
+    url(r'^quote_create/$', 'main.views.quote_create'),
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

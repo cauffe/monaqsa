@@ -26,6 +26,7 @@ def tender_list(request):
 
     return render(request, 'tenders', context)
 
+
 def tender_detail(request, pk):
     context = {}
     tender = Company.objects.get(pk=pk)
@@ -48,3 +49,31 @@ def quotation_detail(request, pk):
     context['quotation'] = quotation
 
     return render(request, 'qoutation.html', context)
+
+
+def tender_create(request):
+    context = {}
+    form = CreateTender()
+    context['from'] = form
+    if requested.method == "POST":
+        form = CreateTender(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            context['valid'] = "Tender Created"
+    else:
+        context['errors'] = form.errors
+    return render(request, 'tender_create.html', context)
+
+
+def quote_create(request):
+    context = {}
+    form = CreateQuote()
+    context['form'] = form
+    if requested.method == "POST":
+        form = CreateQuote(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            context['valid'] = "Quote Created"
+    else:
+        context['errors'] = form.errors
+    return render(request, 'quote_create.html', context)
