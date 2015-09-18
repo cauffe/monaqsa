@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from main.models import Company, Tender, Quotation
 from django.http import HttpResponse, HttpResponseRedirect
-from main.forms import UserSignUp, UserLogin, CreateTender, CreateTender, CreateItem, EditTender, EditQuote, EditItem,
+from main.forms import UserSignUp, UserLogin, CreateTender, CreateTender, CreateItem, EditTender, EditQuote, EditItem
 
 
 # Create your views here.

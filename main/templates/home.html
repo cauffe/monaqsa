@@ -29,8 +29,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="/index/" class="navbar-brand">
-                        <img src="{% static 'images/omega.png' %}" alt="One of the best themes ever">Monaqsa.com
+                    <a href="/home/" class="navbar-brand">
+                        <img src="{% static 'images/logo.png' %}" alt="One of the best themes ever" style="max-height:40px; margin-top:30px;">Monaqsa.com
                     </a>
                 </div>
                 <nav class="collapse navbar-collapse main-navbar" role="navigation">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
+                        <!--<li class="dropdown">
                             <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -72,31 +72,30 @@
                                     <a href="/blog-post/">Blog - Single Post</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="dropdown">
                             <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/contact-big-map/">Contact Us - Big Map</a>
+                                    <a href="/home/">E-mail - </a>
                                 </li>
                                 <li>
-                                    <a href="/contact-big-map-alt/">Contact Us - Big Map Alt</a>
-                                </li>
-                                <li>
-                                    <a href="/contact-small-map/">Contact Us - Small Map</a>
+                                    <a href="/home/">Phone Number - </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                           <a href="">Sign Up</a> 
+                           <a href="/signup/">Sign Up</a> 
                         </li>
                         <li>
-                            <a href="">Log In</a>
+                            <a href="/login/">Log In</a>
                         </li>
                         <li>
                             {% if company.is_authenticated %}
                             <a class="navbar-brand" href="#">{{ request.company }}</a>
                             <a class="navbar-brand" href="/logout/">Logout</a>
+                            <a href="/tender_create/">Create Tender</a>
+                            <a href="/quote_create/">Give Quotation</a>
                           {% endif %}
                         </li>
                     </ul>
@@ -185,7 +184,9 @@
                                             <div class="box box-round box-medium box-simple">
                                                 <div class="box-dummy"></div>
                                                 <div class="box-inner grid-overlay-0" style="background-color:#353b42;">
-                                                    <img class="" src="{% static 'images/icons/indicator-512w.png' %}" alt="a cart" />
+                                                <span class="fa-stack fa-4x text-center">
+                                                    <i class="fa fa-tags fa-stack-1x fa-inverse" style="color:#FFF"></i>
+                                                </span>
                                                 </div>
                                             </div>
                                             <h3 class="normal bold bordered bordered-small ">
@@ -201,7 +202,9 @@
                                             <div class="box box-round box-medium box-simple">
                                                 <div class="box-dummy"></div>
                                                 <div class="box-inner grid-overlay-0" style="background-color:#353b42;">
-                                                    <img class="" src="{% static 'images/icons/gift-512w.png' %}" alt="a gift" />
+                                                    <span class="fa-stack fa-4x text-center">
+                                                        <i class="fa fa-credit-card fa-stack-1x fa-inverse" style="color:#FFF"></i>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <h3 class="normal bold bordered bordered-small ">
@@ -217,7 +220,9 @@
                                             <div class="box box-round box-medium box-simple">
                                                 <div class="box-dummy"></div>
                                                 <div class="box-inner grid-overlay-0" style="background-color:#353b42;">
-                                                    <img class="" src="{% static 'images/icons/lifebuoy-512w.png' %}" alt="a support" />
+                                                   <span class="fa-stack fa-4x text-center">
+                                                        <i class="fa fa-wrench fa-stack-1x fa-inverse" style="color:#FFF"></i>
+                                                    </span>
                                                 </div>
                                             </div>
                                             <h3 class="normal bold bordered bordered-small ">
@@ -249,7 +254,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section swatch-black section-text-shadow section-inner-shadow">
+                <!--<section class="section swatch-black section-text-shadow section-inner-shadow">
                     <div class="background-overlay grid-overlay-20 " style="background-color: rgba(53,59,66,1);"></div>
                     <div class="container-fullwidth">
                         <div class="row">
@@ -390,7 +395,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>-->
                 <section id="two" class="section swatch-white">
                     <div class="container">
                         <div class="row">
@@ -448,7 +453,7 @@
                         </div>
                     </div>
                 </section>
-                <section class="section swatch-black section-text-shadow section-inner-shadow">
+                <!--<section class="section swatch-black section-text-shadow section-inner-shadow">
                     <div class="background-overlay grid-overlay-0 " style="background-color: rgba(46,51,57,1);"></div>
                     <div class="container">
                         <div class="row">
@@ -464,7 +469,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section>-->
                 <section class="section swatch-black section-text-shadow section-inner-shadow">
                     <div class="background-overlay grid-overlay-0 " style="background-color: rgba(46,51,57,1);"></div>
                     <div class="container">
@@ -530,7 +535,7 @@
                     </div>
                 </section>
                 <section id="contact">
-        <!--<div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Contact Us</h2>
