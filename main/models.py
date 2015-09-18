@@ -34,11 +34,11 @@ class Company(models.Model):
 
 
 class Tender(models.Model):
+    company = models.ForeignKey('main.Company')
     name = models.CharField(max_length=255)
     opening_date = models.DateField()
     closing_date = models.DateField()
-    company = models.ForeignKey('main.Company')
-
+   
     def __unicode__(self):
         return self.name
 
@@ -48,6 +48,7 @@ class Item(models.Model):
     description = models.CharField(max_length=255, null=True)
     quantity = models.FloatField()
     tender = models.ForeignKey('main.Tender')
+    image = models.ImageField(upload_to='items')
 
     def __unicode__(self):
         return self.name
@@ -55,8 +56,9 @@ class Item(models.Model):
 
 class Quotation(models.Model):
     unit_price = models.FloatField()
+    quantity = models.CharField(max_length=255)
     total_price = models.FloatField()
-    note = models.CharField(max_length=255, null=True)
+    comment = models.CharField(max_length=255, null=True)
     company = models.ForeignKey('main.Company')
     item = models.ManyToManyField('main.Item')
     tender = models.ForeignKey('main.Tender')
