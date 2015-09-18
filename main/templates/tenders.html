@@ -1,0 +1,139 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Business | Monaqsa.com</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="yes" name="apple-mobile-web-app-capable">
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,300italic,400italic,600italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/color-defaults.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-white.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-blue.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-gray.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-black.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-white-black.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-white-green.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/swatch-white-red.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/fonts.min.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'css/revolution.min.css' %}" media="screen">
+    </head>
+    <body class="normal-header">
+                <nav class="collapse navbar-collapse main-navbar" role="navigation">
+                    <div class="menu-sidebar pull-right">
+                        <div id="search-4" class="sidebar-widget  widget_search">
+                            <form role="search" method="get" id="searchform" action="blog-classic.html">
+                                <div class="input-group">
+                                    <input type="text" value="" name="s" id="s" class="form-control" placeholder="Search">
+                                    <span class="input-group-btn">
+                                    <button class="btn" type="submit" id="searchsubmit" value="Search">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/blog-classic/">Blog - Classic</a>
+                                </li>
+                                <li>
+                                    <a href="/blog-fullwidth/">Blog - Fullwidth</a>
+                                </li>
+                                <li>
+                                    <a href="/blog-narrow/">Blog - Fullwidth Narrow</a>
+                                </li>
+                                <li>
+                                    <a href="/blog-wide/">Blog - Fullwidth Wide</a>
+                                </li>
+                                <li>
+                                    <a href="/blog-masonry/">Blog - Masonry</a>
+                                </li>
+                                <li role="presentation" class="divider"></li>
+                                <li>
+                                    <a href="/blog-post/">Blog - Single Post</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="/contact-big-map/">Contact Us - Big Map</a>
+                                </li>
+                                <li>
+                                    <a href="/contact-big-map-alt/">Contact Us - Big Map Alt</a>
+                                </li>
+                                <li>
+                                    <a href="/contact-small-map/">Contact Us - Small Map</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                           <a href="">Sign Up</a> 
+                        </li>
+                        <li>
+                            <a href="">Log In</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </body>
+    <script src="{% static 'js/packages.min.js' %}"></script>
+    <script src="{% static 'js/theme.min.js' %}"></script>
+    <script src="{% static 'js/revolution.min.js' %}"></script>
+    <script type="text/javascript">
+    jQuery(document).ready(function()
+    {
+        jQuery('.tp-banner').show().revolution(
+        {
+            delay: 8000,
+            startwidth: 1170,
+            startheight: 480,
+            onHoverStop: "on", // Stop Banner Timer at Hover on Slide on/off
+            thumbWidth: 100, // Thumb With and Height and Amount (only if navigation Tyope set to thumb !)
+            thumbHeight: 50,
+            thumbAmount: 3,
+            hideThumbs: 0,
+            navigationType: "bullet", // bullet, thumb, none
+            navigationArrows: "solo", // nexttobullets, solo (old name verticalcentered), none
+            navigationStyle: "round", // round,square,navbar,round-old,square-old,navbar-old, or any from the list in the docu (choose between 50+ different item), custom
+            navigationHAlign: "center", // Vertical Align top,center,bottom
+            navigationVAlign: "bottom", // Horizontal Align left,center,right
+            navigationHOffset: 0,
+            navigationVOffset: 20,
+            soloArrowLeftHalign: "left",
+            soloArrowLeftValign: "center",
+            soloArrowLeftHOffset: 20,
+            soloArrowLeftVOffset: 0,
+            soloArrowRightHalign: "right",
+            soloArrowRightValign: "center",
+            soloArrowRightHOffset: 20,
+            soloArrowRightVOffset: 0,
+            touchenabled: "on", // Enable Swipe Function : on/off
+            stopAtSlide: -1, // Stop Timer if Slide "x" has been Reached. If stopAfterLoops set to 0, then it stops already in the first Loop at slide X which defined. -1 means do not stop at any slide. stopAfterLoops has no sinn in this case.
+            stopAfterLoops: -1, // Stop Timer if All slides has been played "x" times. IT will stop at THe slide which is defined via stopAtSlide:x, if set to -1 slide never stop automatic
+            hideCaptionAtLimit: 0, // It Defines if a caption should be shown under a Screen Resolution ( Basod on The Width of Browser)
+            hideAllCaptionAtLilmit: 0, // Hide all The Captions if Width of Browser is less then this value
+            hideSliderAtLimit: 0, // Hide the whole slider, and stop also functions if Width of Browser is less than this value
+            fullWidth: "on",
+            shadow: 0
+        });
+    });
+    </script>
+    {% block body %}
+        <div class="container">
+            <div class="row">
+                {% for company in companies %}
+                    <h3><a href="/tender/{{ tender.pk }}">{{ tender.name }}</a></h3>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
