@@ -29,8 +29,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="/index/" class="navbar-brand">
-                        <img src="{% static 'images/omega.png' %}" alt="One of the best themes ever">Monaqsa.com
+                    <a href="/home/" class="navbar-brand">
+                        <img src="{% static 'images/logo.png' %}" alt="One of the best themes ever" style="max-height:40px;">
                     </a>
                 </div>
                 <nav class="collapse navbar-collapse main-navbar" role="navigation">
@@ -49,7 +49,7 @@
                         </div>
                     </div>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
+                        <!--<li class="dropdown">
                             <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
                             <ul class="dropdown-menu">
                                 <li>
@@ -72,31 +72,30 @@
                                     <a href="/blog-post/">Blog - Single Post</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li>-->
                         <li class="dropdown">
                             <a href="/home/" class="dropdown-toggle" data-toggle="dropdown">Contact</a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a href="/contact-big-map/">Contact Us - Big Map</a>
+                                    <a href="/home/">E-mail - </a>
                                 </li>
                                 <li>
-                                    <a href="/contact-big-map-alt/">Contact Us - Big Map Alt</a>
-                                </li>
-                                <li>
-                                    <a href="/contact-small-map/">Contact Us - Small Map</a>
+                                    <a href="/home/">Phone Number - </a>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                           <a href="">Sign Up</a> 
+                           <a href="/signup/">Sign Up</a> 
                         </li>
                         <li>
-                            <a href="">Log In</a>
+                            <a href="/login/">Log In</a>
                         </li>
                         <li>
                             {% if company.is_authenticated %}
                             <a class="navbar-brand" href="#">{{ request.company }}</a>
                             <a class="navbar-brand" href="/logout/">Logout</a>
+                            <a href="/tender_create/">Create Tender</a>
+                            <a href="/quote_create/">Give Quotation</a>
                           {% endif %}
                         </li>
                     </ul>
@@ -104,30 +103,7 @@
             </div>
         </div>
         {% block body %}
-
         {% endblock %}
-        {% comment %}
-        <footer id="footer" role="contentinfo">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="copyright">Copyright &copy; Recoms 2015</span>
-                    </div>
-                    <div class="col-md-4">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-        </footer>
-        {% endcomment %}
-        </div>
         <script src="{% static 'js/packages.min.js' %}"></script>
         <script src="{% static 'js/theme.min.js' %}"></script>
         <script src="{% static 'js/revolution.min.js' %}"></script>
